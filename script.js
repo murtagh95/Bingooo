@@ -19,16 +19,28 @@ window.onload = () =>{
 
         fila = document.getElementById('cantidad-fila')
         columna = document.getElementById('cantidad-col')
+        // Controlo los nº para que no superen el espacio asignado
+        if(columna.value > 9 && fila.value > 15) {
+            columna.value = 9;
+            alert("El maximo de columnas es 9 si las filas son mas de 15");
+        }
+        // Controlo que no se ingresen nº negativos
+        if(columna.value < 0 || fila.value < 0){
+            alert("Tienes que ingresar valor positivos en las filas y columnas")
+        }
+        else{
+            crearTabla()
+            
+            // Una vez creada la tabla guardamos en un array cada celda
+            lista_celdas = Array.from(document.querySelectorAll('td')) 
+            
+            // recoremos el array de celdas y le asignamos un escuchador de eventos
+            lista_celdas.map((el, i) => {
+                lista_celdas[i].addEventListener('click', colorear_fondo(i), false)
+            })
 
-        crearTabla()
-        
-        // Una vez creada la tabla guardamos en un array cada celda
-        lista_celdas = Array.from(document.querySelectorAll('td')) 
-        
-        // recoremos el array de celdas y le asignamos un escuchador de eventos
-        lista_celdas.map((el, i) => {
-            lista_celdas[i].addEventListener('click', colorear_fondo(i), false)
-        })
+        }
+
 
     }
 
@@ -89,6 +101,9 @@ function comprobar() {
 function crearTabla() {
     const tabla = document.getElementById('boydTabla')
     const cabezera = document.getElementById('headTabla')
+    tabla.innerHTML = ""
+    cabezera.innerHTML = ""
+
 
     for(let i=0; i <= columna.value; i++) {
         if(i == 0) {

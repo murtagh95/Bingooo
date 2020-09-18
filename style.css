@@ -64,7 +64,7 @@ td, th {
 
 .premios {
     display: inline-block;
-    color: rgb(255, 162, 40);
+    color: rgb(236, 5, 5);
     text-shadow: 5px 5px 15px black;
 }
 
@@ -73,7 +73,7 @@ td, th {
     background-color: transparent;
     border: 2px solid black;
     box-shadow: 2px 2px 5px black;
-    color: rgb(255, 162, 40);
+    color: rgb(236, 5, 5);
     font-size: 20px;
     margin: 5px;
     
